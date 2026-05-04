@@ -1,0 +1,25 @@
+@host = http://localhost:3000
+
+###
+GET {{host}}/health
+
+###
+# @name startAnalysis
+POST {{host}}/analyze
+Content-Type: application/json
+
+{
+    "ticker": "AAPL"
+}
+
+###
+@jobId = {{startAnalysis.response.body.$.job_id}}
+
+###
+GET {{host}}/jobs/{{jobId}}/status
+
+###
+GET {{host}}/jobs/{{jobId}}/result
+
+###
+GET {{host}}/jobs

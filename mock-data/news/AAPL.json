@@ -1,0 +1,33 @@
+{
+    "ticker": "AAPL",
+    "articles": [
+        {
+            "title": "Apple beats Q1 2026 earnings expectations on iPhone sales",
+            "source": "Reuters",
+            "publishedAt": "2026-04-28T14:00:00Z",
+            "summary": "Apple reported Q1 2026 revenue of $124B, up 8 percent year over year, beating analyst expectations. iPhone sales drove most of the growth, with strong demand in emerging markets and India.",
+            "url": "https://example.com/news/apple-q1-2026"
+        },
+        {
+            "title": "Apple Vision Pro 2 announced for late 2026",
+            "source": "Bloomberg",
+            "publishedAt": "2026-04-15T10:30:00Z",
+            "summary": "Apple announced Vision Pro 2, a lighter and cheaper version of its mixed reality headset. Launch expected Q4 2026 at $2,499. Analysts see this as Apple's renewed push into spatial computing.",
+            "url": "https://example.com/news/vision-pro-2"
+        },
+        {
+            "title": "Tim Cook outlines AI strategy at developer keynote",
+            "source": "TechCrunch",
+            "publishedAt": "2026-04-10T16:00:00Z",
+            "summary": "CEO Tim Cook detailed Apple's expanded AI strategy, emphasizing on-device intelligence and privacy. New Apple Intelligence features will be available on all 2024 and later devices.",
+            "url": "https://example.com/news/cook-ai-keynote"
+        },
+        {
+            "title": "EU antitrust probe into App Store practices continues",
+            "source": "Financial Times",
+            "publishedAt": "2026-03-22T08:00:00Z",
+            "summary": "The European Commission opened a new investigation into Apple's App Store fees, focusing on alternative payment processors. Apple denies wrongdoing. Potential fine could reach 10 percent of global revenue.",
+            "url": "https://example.com/news/eu-app-store"
+        }
+    ]
+}

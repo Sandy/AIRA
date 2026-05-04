@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AIRA Live Stream Test</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+        h1 { margin-bottom: 0.25rem; }
+        .sub { color: #666; margin-top: 0; font-size: 0.9rem; }
+        .controls { display: flex; gap: 0.5rem; margin: 1rem 0; }
+        input { padding: 0.5rem; font-size: 1rem; flex: 1; }
+        button { padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+        #log { background: #111; color: #eee; padding: 1rem; border-radius: 6px; min-height: 300px; white-space: pre-wrap; font-family: monospace; font-size: 0.85rem; line-height: 1.4; overflow-x: auto; }
+        .start { color: #6cf; }
+        .step { color: #cfc; }
+        .result { color: #ffd; }
+        .done { color: #aaf; }
+        .failed { color: #f88; }
+    </style>
+</head>
+<body>
+    <h1>AIRA Live Stream</h1>
+    <p class="sub">Each agent step appears below as it happens, via Server-Sent Events.</p>
+    <div class="controls">
+        <input id="ticker" placeholder="Ticker (e.g., AAPL)" value="AAPL">
+        <button id="go">Analyze</button>
+        <button id="clear">Clear</button>
+    </div>
+    <div id="log"></div>
+    <script>
+        const log = document.getElementById('log');
+        const tickerInput = document.getElementById('ticker');
+        const goBtn = document.getElementById('go');
+        const clearBtn = document.getElementById('clear');
+
+        function append(eventName, data) {
+            const time = new Date().toLocaleTimeString();
+            const line = document.createElement('div');
+            line.className = eventName;
+            line.textContent = `[${time}] ${eventName.toUpperCase()}: ${data}`;
+            log.appendChild(line);
+            log.scrollTop = log.scrollHeight;
+        }
+
+        clearBtn.addEventListener('click', () => { log.textContent = ''; });
+
+        goBtn.addEventListener('click', () => {
+            const ticker = tickerInput.value.trim();
+            if (!ticker) { append('failed', 'Ticker is required'); return; }
+            goBtn.disabled = true;
+
+            const url = `/analyze/stream?ticker=${encodeURIComponent(ticker)}`;
+            const es = new EventSource(url);
+
+            es.addEventListener('start',  e => append('start',  e.data));
+            es.addEventListener('step',   e => append('step',   e.data));
+            es.addEventListener('result', e => append('result', e.data));
+            es.addEventListener('done',   e => { append('done', e.data); es.close(); goBtn.disabled = false; });
+            es.addEventListener('failed', e => { append('failed', e.data); es.close(); goBtn.disabled = false; });
+
+            es.onerror = () => { append('failed', 'EventSource connection error'); es.close(); goBtn.disabled = false; };
+        });
+    </script>
+</body>
+</html>

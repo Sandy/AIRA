@@ -1,0 +1,17 @@
+{
+    "ticker": "AAPL",
+    "company": "Apple Inc.",
+    "exchange": "NASDAQ",
+    "asOfDate": "2026-05-04",
+    "stockPrice": 198.42,
+    "currency": "USD",
+    "marketCap": 3050000000000,
+    "sharesOutstanding": 15370000000,
+    "revenueQuarterlyUsd": 124000000000,
+    "revenueYoyPercent": 8.2,
+    "profitMarginPercent": 25.6,
+    "peRatio": 31.5,
+    "dividendYieldPercent": 0.45,
+    "fiftyTwoWeekHigh": 215.30,
+    "fiftyTwoWeekLow": 165.10
+}

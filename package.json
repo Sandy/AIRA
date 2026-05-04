@@ -1,0 +1,33 @@
+{
+  "name": "aira-typescript",
+  "version": "0.1.0",
+  "description": "Autonomous Investment Research Agent built with Claude Agent SDK + Express",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "test:agent": "tsx src/agent/test-call.ts",
+    "test:tools": "tsx src/agent/test-tools.ts",
+    "test": "echo \"no tests yet\" && exit 0"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "claude",
+    "investment"
+  ],
+  "author": "Sandy",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.2.126",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
