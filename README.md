@@ -25,24 +25,9 @@ If you want to skip ahead, jump to [Quick start](#quick-start) or [How requireme
 
 A short walkthrough showing the server starting, a `POST /analyze`, the live SSE stream of agent steps, and the final JSON.
 
-<!--
-HOW TO ADD THE VIDEO:
+<video src="https://github.com/Sandy/AIRA/raw/main/demo/aira-demo.mp4" controls width="720"></video>
 
-Option 1 (simplest, recommended): drag and drop the video file into a GitHub issue or pull request comment in this repo. GitHub will host it and give you a URL like:
-    https://github.com/user-attachments/assets/<UUID>
-Paste that URL on its own line in this section, exactly like:
-
-    https://github.com/user-attachments/assets/your-uuid-here
-
-GitHub auto-renders the video player.
-
-Option 2: commit the video into the repo (for example docs/demo.mp4), then use:
-    https://github.com/Sandy/AIRA/raw/main/docs/demo.mp4
-or an HTML tag:
-    <video src="docs/demo.mp4" controls width="720"></video>
--->
-
-(Video link will be added here.)
+If your viewer does not embed the player, open the file directly: [demo/aira-demo.mp4](demo/aira-demo.mp4).
 
 ---
 
